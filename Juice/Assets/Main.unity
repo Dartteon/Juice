@@ -6203,6 +6203,7 @@ MonoBehaviour:
   audioEnabled: 1
   particleSpawnOnExplode: 1
   trailsEnabled: 1
+  knockbackOnHit: 0
   numEnemiesToSpawn: 15
   enemyPrefab: {fileID: 1338372344781722, guid: 4cba43d10d8ad8e4c99f85635ae3a427,
     type: 2}

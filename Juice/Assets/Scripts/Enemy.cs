@@ -6,6 +6,7 @@ public class Enemy : BaseActor {
 
 	protected override void Extra_Initialize() {
 		this.health = 15;
+		this.moveSpeed = 1f;
 	}
 	public override void Damage(int dmg) {
 		CameraManager.CamShake (0.1f, 0.2f);
@@ -23,5 +24,19 @@ public class Enemy : BaseActor {
 	}
 	protected override void StartDeathSequence() {
 		gameObject.SetActive (false);
+	}
+
+	protected override void HandleMovement() {
+
+		float xVel = 0f;
+		float yVel = 0f;
+
+		if (TimeManager.isPaused) {
+			rb2d.velocity = Vector2.zero;
+			return;
+		} else {
+			yVel += -moveSpeed;
+			rb2d.velocity = new Vector2 (xVel, yVel);
+		}
 	}
 }
