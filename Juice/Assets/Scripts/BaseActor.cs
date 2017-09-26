@@ -9,7 +9,7 @@ public class BaseActor : MonoBehaviour {
 	protected Rigidbody2D rb2d;
 	protected float moveSpeed = 5f;
 
-	protected int health;
+	protected int health = 2;
 
 	protected float lastFiredTimeDistance = 100f;
 
@@ -20,9 +20,11 @@ public class BaseActor : MonoBehaviour {
 
 	public void Initialize() {
 		rb2d = transform.GetComponent<Rigidbody2D> ();
+		Extra_Initialize ();
+	}
+	protected virtual void Extra_Initialize() {
 	}
 	void Update() {
-		if (TimeManager.isPaused) return;
 		HandleMovement ();
 		HandleShooting ();
 	}
@@ -31,6 +33,7 @@ public class BaseActor : MonoBehaviour {
 	protected virtual void HandleShooting() {
 	}
 	public virtual void Damage(int dmg) {
-		CameraManager.CamShake (0.1f, 0.2f);
+	}
+	protected virtual void StartDeathSequence() {
 	}
 }

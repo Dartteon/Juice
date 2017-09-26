@@ -42,5 +42,4 @@ public class CameraManager : MonoBehaviour {
 		instance.totalShakeDuration = duration;
 		instance.isShaking = true;
 	}
-
 }
