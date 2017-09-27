@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
 	public bool bulletExplode;
 	public bool pauseTimeOnHit;
 	public bool showEnemyDamaged;
+	public bool backgroundMovingEffect;
 
 	//TBI
 	public bool audioEnabled;
@@ -50,6 +51,9 @@ public class GameManager : MonoBehaviour {
 
 	private void Initialize() {
 		sceneObject = GameObject.Find ("Scene").transform;
+		if (backgroundMovingEffect) {
+			sceneObject.Find ("MovingEffect").gameObject.SetActive (true);
+		}
 //		SpawnEnemies ();
 	}
 
