@@ -12,21 +12,32 @@ public class GameManager : MonoBehaviour {
 	public bool pauseTimeOnHit;
 	public bool showEnemyDamaged;
 	public bool backgroundMovingEffect;
+	public bool showEnemyHitEffect;
+	public bool showEnemyDeathExplosion;
+	public bool playerTrailEnabled;
+	public bool bulletSummonEffects;
+	public bool bulletTrail;
+	public bool particleSpawnOnExplode;
 
 	//TBI
 	public bool audioEnabled;
-	public bool particleSpawnOnExplode;
-	public bool trailsEnabled;
 	public bool knockbackOnHit;
 
 	[SerializeField]
 	private int numEnemiesToSpawn = 15;
+	public bool spawnEnemies;
+	[SerializeField]
+	private float spawnRate = 2f;
 
 	[SerializeField]
 	private GameObject enemyPrefab;
 
+	public int enemyHealth;
+
 	private float lastSpawnEnemyTimeWidth = 0f;
 	private float spawnEnemyCooldown = 1f;
+
+	public float camShakeIntensity = 0.2f;
 
 	void Start() {
 		instance = this;
@@ -38,10 +49,20 @@ public class GameManager : MonoBehaviour {
 		if (lastSpawnEnemyTimeWidth >= spawnEnemyCooldown) {
 			SpawnEnemy ();
 			lastSpawnEnemyTimeWidth = 0f;
-			spawnEnemyCooldown = Random.Range (1.5f, 3f);
+			spawnEnemyCooldown = Random.Range (1/spawnRate - 0.5f, 1/spawnRate + 0.5f);
+		}
+
+		if (Input.GetKey (KeyCode.T)) {
+			Time.timeScale = 0.5f;
+		} else {
+			Time.timeScale = 1f;
 		}
 	}
 	private void SpawnEnemy() {
+		if (!spawnEnemies) {
+			return;
+		}
+
 		float yPos = 11f;
 		float xPos = Random.Range (-4.73f, 4.73f);
 		GameObject enemy = GameObject.Instantiate (enemyPrefab, sceneObject);

@@ -382,7 +382,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -532264728
+  randomSeed: 1783347376
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5744,8 +5744,7 @@ Transform:
 --- !u!1 &949976023
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1427874980987720, guid: 8a9beb53174be6b45a12bf959feb4167,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
@@ -5762,8 +5761,7 @@ GameObject:
 --- !u!4 &949976024
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4496250684024932, guid: 8a9beb53174be6b45a12bf959feb4167,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 949976023}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -5777,8 +5775,7 @@ Transform:
 ParticleSystemRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 199813010858542488, guid: 8a9beb53174be6b45a12bf959feb4167,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 949976023}
   m_Enabled: 1
@@ -5827,8 +5824,7 @@ ParticleSystemRenderer:
 --- !u!198 &949976026
 ParticleSystem:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 198148265918760992, guid: 8a9beb53174be6b45a12bf959feb4167,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 949976023}
   serializedVersion: 5
@@ -5880,7 +5876,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 232241565
+  randomSeed: 753008432
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -8531,6 +8527,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1900352930791148, guid: 8a9beb53174be6b45a12bf959feb4167,
     type: 2}
+  fireEffectPrefab: {fileID: 1925166440565612, guid: 7021bfea6ec23c441a7f4ddf49036aef,
+    type: 2}
+  bigBulletPrefab: {fileID: 1955095928745180, guid: cd51ede73eb3259418cb05a354aca1f5,
+    type: 2}
 --- !u!4 &1088458763
 Transform:
   m_ObjectHideFlags: 0
@@ -8901,18 +8901,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b855cae44143cea48b63ea1a839b829d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camShake: 1
-  bulletExplode: 1
+  camShake: 0
+  bulletExplode: 0
   pauseTimeOnHit: 0
-  showEnemyDamaged: 1
-  backgroundMovingEffect: 1
-  audioEnabled: 1
-  particleSpawnOnExplode: 1
-  trailsEnabled: 1
+  showEnemyDamaged: 0
+  backgroundMovingEffect: 0
+  showEnemyHitEffect: 0
+  showEnemyDeathExplosion: 0
+  playerTrailEnabled: 0
+  bulletSummonEffects: 0
+  bulletTrail: 0
+  particleSpawnOnExplode: 0
+  audioEnabled: 0
   knockbackOnHit: 0
   numEnemiesToSpawn: 15
+  spawnEnemies: 1
+  spawnRate: 5
   enemyPrefab: {fileID: 1338372344781722, guid: 4cba43d10d8ad8e4c99f85635ae3a427,
     type: 2}
+  enemyHealth: 5
+  camShakeIntensity: 0.2
 --- !u!1 &2036305067
 GameObject:
   m_ObjectHideFlags: 0

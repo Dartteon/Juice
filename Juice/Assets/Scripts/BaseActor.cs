@@ -5,6 +5,8 @@ using UnityEngine;
 public class BaseActor : MonoBehaviour {
 	[SerializeField]
 	protected GameObject bulletPrefab;
+	[SerializeField]
+	protected GameObject fireEffectPrefab;
 	protected Transform gunPoint;
 	protected Rigidbody2D rb2d;
 	protected float moveSpeed = 5f;
@@ -27,6 +29,10 @@ public class BaseActor : MonoBehaviour {
 	void Update() {
 		HandleMovement ();
 		HandleShooting ();
+		Extra_Update ();
+	}
+	protected virtual void Extra_Update() {
+
 	}
 	protected virtual void HandleMovement() {
 	}

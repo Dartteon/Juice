@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : BaseActor {
+	private Animator anim;
 
 	protected override void Extra_Initialize() {
-		this.health = 15;
+		this.health = GameManager.instance.enemyHealth;
 		this.moveSpeed = 1f;
+		anim = transform.GetComponent<Animator> ();
 	}
 	public override void Damage(int dmg) {
-		CameraManager.CamShake (0.1f, 0.2f);
 		health -= dmg;
+		ShowHitEffect ();
 
 		if (GameManager.instance.showEnemyDamaged) {
 			SpriteRenderer spriteR = transform.GetComponentInChildren<SpriteRenderer> ();
@@ -23,6 +25,16 @@ public class Enemy : BaseActor {
 		}
 	}
 	protected override void StartDeathSequence() {
+		CameraManager.CamShake (GameManager.instance.camShakeIntensity, 0.2f);
+		if (GameManager.instance.showEnemyDeathExplosion) {
+			anim.Play ("EnemyDeath");
+			Invoke ("DestroySelf", 0.5f);
+			transform.GetComponentInChildren<Collider2D> ().enabled = false;
+		} else {
+			DestroySelf ();
+		}
+	}
+	private void DestroySelf() {
 		gameObject.SetActive (false);
 	}
 
@@ -37,6 +49,12 @@ public class Enemy : BaseActor {
 		} else {
 			yVel += -moveSpeed;
 			rb2d.velocity = new Vector2 (xVel, yVel);
+		}
+	}
+
+	private void ShowHitEffect() {
+		if (GameManager.instance.showEnemyHitEffect) {
+			anim.Play ("EnemyHit");
 		}
 	}
 }
