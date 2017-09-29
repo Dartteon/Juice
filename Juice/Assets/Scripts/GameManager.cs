@@ -7,21 +7,28 @@ public class GameManager : MonoBehaviour {
 	private Transform sceneObject;
 	private int numEnemiesPerWave = 5;
 
+	// 1 - Camera Shake
 	public bool camShake;
-	public bool bulletExplode;
+	// 2 - Time Manipulation
 	public bool pauseTimeOnHit;
-	public bool showEnemyDamaged;
-	public bool backgroundMovingEffect;
-	public bool showEnemyHitEffect;
-	public bool showEnemyDeathExplosion;
-	public bool playerTrailEnabled;
-	public bool bulletSummonEffects;
-	public bool bulletTrail;
+	// 3 - Explosion Particles
 	public bool particleSpawnOnExplode;
+	// 4 - Enemy Wince
+	public bool enemyWince;
+	public bool enemyDeathExplosion;
+	// 5 - Emphasize Movement
+	public bool playerTrail;
+	public bool bulletTrail;
+	// 6 - Fire Impact
+	public bool bulletSummonEffects;
+	// 7 - Animated Background
+	public bool animatedBackground;
 
 	//TBI
 	public bool audioEnabled;
 	public bool knockbackOnHit;
+
+	public bool useAllJuices;
 
 	[SerializeField]
 	private int numEnemiesToSpawn = 15;
@@ -40,8 +47,26 @@ public class GameManager : MonoBehaviour {
 	public float camShakeIntensity = 0.2f;
 
 	void Start() {
+		if (useAllJuices) {
+			UseAllJuices ();
+		}
 		instance = this;
 		Initialize ();
+	}
+
+	private void UseAllJuices() {
+		camShake = true;
+		pauseTimeOnHit = true;
+		particleSpawnOnExplode = true;
+		enemyWince = true;
+		enemyDeathExplosion = true;
+		playerTrail = true;
+		bulletTrail = true;
+		bulletSummonEffects = true;
+		animatedBackground = true;
+
+		audioEnabled = true;
+		knockbackOnHit = true;
 	}
 
 	void Update() {
@@ -56,6 +81,10 @@ public class GameManager : MonoBehaviour {
 			Time.timeScale = 0.5f;
 		} else {
 			Time.timeScale = 1f;
+		}
+
+		if (Input.GetKeyDown (KeyCode.JoystickButton0)) {
+			UnityEngine.SceneManagement.SceneManager.LoadScene ("Main");
 		}
 	}
 	private void SpawnEnemy() {
@@ -72,7 +101,7 @@ public class GameManager : MonoBehaviour {
 
 	private void Initialize() {
 		sceneObject = GameObject.Find ("Scene").transform;
-		if (backgroundMovingEffect) {
+		if (animatedBackground) {
 			sceneObject.Find ("MovingEffect").gameObject.SetActive (true);
 		}
 //		SpawnEnemies ();

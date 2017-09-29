@@ -10,12 +10,16 @@ public class Player : BaseActor {
 	protected override void Extra_Update() {
 		if (GameManager.instance == null) return;
 
-		if (trailEnabled != GameManager.instance.playerTrailEnabled) {
-			trailEnabled = GameManager.instance.playerTrailEnabled;
+		if (trailEnabled != GameManager.instance.playerTrail) {
+			trailEnabled = GameManager.instance.playerTrail;
 			transform.Find ("Trail").gameObject.SetActive (trailEnabled);
 		}
 	}
 	protected override void HandleMovement() {
+		if (Input.GetJoystickNames ().Length > 0) {
+			HandleController ();
+			return;
+		}
 		bool isMovingLeft = Input.GetKey (KeyCode.LeftArrow);
 		bool isMovingRight = Input.GetKey (KeyCode.RightArrow);
 
@@ -44,6 +48,15 @@ public class Player : BaseActor {
 			rb2d.velocity = new Vector2 (xVel, yVel);
 		}
 	}
+	private void HandleController() {
+		if (TimeManager.isPaused) {
+			rb2d.velocity = Vector2.zero;
+			return;
+		} 
+		float xVel = Input.GetAxis ("Horizontal") * moveSpeed;
+		float yVel = Input.GetAxis ("Vertical") * moveSpeed;
+		rb2d.velocity = new Vector2 (xVel, yVel);
+	}
 	protected override void HandleShooting() {
 		if (TimeManager.isPaused) return;
 
@@ -55,7 +68,8 @@ public class Player : BaseActor {
 //			Bullet bullet = bulletObj.GetComponent<Bullet> ();
 //			bullet.Initialize (Vector2.up, true);
 //		}
-		if (Input.GetKey (KeyCode.Space) || Input.GetKeyDown (KeyCode.Space)) {
+		if (Input.GetKey (KeyCode.Space) || Input.GetKeyDown (KeyCode.Space)
+			|| Input.GetKey(KeyCode.JoystickButton3)) {
 			if (lastFiredTimeDistance >= 0.1f) {
 				lastFiredTimeDistance = 0f;
 				GameObject bulletObj = GameObject.Instantiate (bulletPrefab, transform.parent);
@@ -75,7 +89,7 @@ public class Player : BaseActor {
 			}
 		}
 
-		if (Input.GetKeyDown (KeyCode.LeftAlt)) {
+		if (Input.GetKeyDown (KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.JoystickButton1)) {
 			GameObject bulletObj = GameObject.Instantiate (bigBulletPrefab, transform.parent);
 			bulletObj.transform.position = gunPoint.transform.position;
 			bulletObj.SetActive (true);

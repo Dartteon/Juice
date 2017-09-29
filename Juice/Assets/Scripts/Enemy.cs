@@ -14,19 +14,13 @@ public class Enemy : BaseActor {
 		health -= dmg;
 		ShowHitEffect ();
 
-		if (GameManager.instance.showEnemyDamaged) {
-			SpriteRenderer spriteR = transform.GetComponentInChildren<SpriteRenderer> ();
-			Color col = spriteR.color;
-			spriteR.color = new Color (col.r, col.g, col.b, 0.5f);
-		}
-
 		if (health <= 0) {
 			StartDeathSequence ();
 		}
 	}
 	protected override void StartDeathSequence() {
 		CameraManager.CamShake (GameManager.instance.camShakeIntensity, 0.2f);
-		if (GameManager.instance.showEnemyDeathExplosion) {
+		if (GameManager.instance.enemyDeathExplosion) {
 			anim.Play ("EnemyDeath");
 			Invoke ("DestroySelf", 0.5f);
 			transform.GetComponentInChildren<Collider2D> ().enabled = false;
@@ -53,7 +47,7 @@ public class Enemy : BaseActor {
 	}
 
 	private void ShowHitEffect() {
-		if (GameManager.instance.showEnemyHitEffect) {
+		if (GameManager.instance.enemyWince) {
 			anim.Play ("EnemyHit");
 		}
 	}

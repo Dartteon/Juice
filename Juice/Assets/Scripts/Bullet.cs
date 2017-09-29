@@ -71,9 +71,9 @@ public class Bullet : MonoBehaviour {
 			if (e != null) {
 				e.Damage (damage);
 				StopTime ();
+				SpawnExplosion ();
 			}
 			if (currNumHit >= maxNumHit) {
-				SpawnExplosion ();
 				StartDestructSequence ();
 			}
 		} else {
@@ -94,6 +94,7 @@ public class Bullet : MonoBehaviour {
 
 	private void StartDestructSequence() {
 		SpawnExplosion ();
+		DestroySelf ();
 //		if (!GameManager.instance.particleSpawnOnExplode && !GameManager.instance.bulletExplode) {
 //			DestroySelf ();
 //		} else {
@@ -109,7 +110,6 @@ public class Bullet : MonoBehaviour {
 		explosion.transform.position = transform.position + new Vector3(0f, 0f, -1f);
 		explosion.SetActive (true);
 		Destroy (explosion, 0.5f);
-		DestroySelf ();
 
 		if (GameManager.instance.particleSpawnOnExplode) {
 			explosion.transform.Find ("ExplodeParticles").gameObject.SetActive (true);
