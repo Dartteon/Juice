@@ -19,8 +19,6 @@ public class Bullet : MonoBehaviour {
 	private bool stopTimeOnHit;
 
 	private int currNumHit = 0;
-
-	private bool isAnimExploding;
 	private float timeAfterDeath;
 
 	public void Initialize(Vector2 direction, bool isFriendly) {
@@ -38,26 +36,11 @@ public class Bullet : MonoBehaviour {
 	}
 
 	void Update() {
-//		if (TimeManager.isPaused) {
-//			if (isAnimExploding) {
-//				anim.enabled = false;
-//			}
-//		}
-
 		Vector3 currPos = transform.position;
 		Vector2 offset = direction * TimeManager.deltaTime * speed;
 		Vector3 offset3 = new Vector3 (offset.x, offset.y, 0f);
 		Vector3 nextPos = currPos + offset3;
 		rb2d.MovePosition (nextPos);
-
-		if (isAnimExploding) {
-//			anim.enabled = true;
-			if (timeAfterDeath >= 0.5f) {
-				DestroySelf ();
-			} else {
-				timeAfterDeath += TimeManager.deltaTime;
-			}
-		}
 	}
 
 	void OnTriggerEnter2D (Collider2D col) {
@@ -95,14 +78,6 @@ public class Bullet : MonoBehaviour {
 	private void StartDestructSequence() {
 		SpawnExplosion ();
 		DestroySelf ();
-//		if (!GameManager.instance.particleSpawnOnExplode && !GameManager.instance.bulletExplode) {
-//			DestroySelf ();
-//		} else {
-//			transform.Find ("Sprite").gameObject.SetActive (false);
-//			transform.GetComponentInChildren<Collider2D> ().enabled = false;
-//			rb2d.velocity = Vector2.zero;
-//			Destroy (gameObject, 0.5f);
-//		}
 	}
 
 	private void SpawnExplosion() {
@@ -114,17 +89,6 @@ public class Bullet : MonoBehaviour {
 		if (GameManager.instance.particleSpawnOnExplode) {
 			explosion.transform.Find ("ExplodeParticles").gameObject.SetActive (true);
 		}
-//		if (GameManager.instance.bulletExplode) {
-//			direction = Vector2.zero;
-//			anim.enabled = true;
-//			//			anim.Play ("BulletExplode");
-//			isAnimExploding = true;
-//			timeAfterDeath = 0f;
-//			transform.GetComponentInChildren<Collider2D> ().enabled = false;
-//			explosion.transform.Find ("Sprite").gameObject.SetActive (true);
-//		} else {
-//			DestroySelf ();
-//		}
 	}
 
 	private void DestroySelf() {
