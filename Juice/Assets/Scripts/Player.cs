@@ -60,14 +60,6 @@ public class Player : BaseActor {
 	protected override void HandleShooting() {
 		if (TimeManager.isPaused) return;
 
-
-//		if (Input.GetKeyDown (KeyCode.Space)) {
-//			GameObject bulletObj = GameObject.Instantiate (bulletPrefab, transform.parent);
-//			bulletObj.transform.position = gunPoint.transform.position;
-//			bulletObj.SetActive (true);
-//			Bullet bullet = bulletObj.GetComponent<Bullet> ();
-//			bullet.Initialize (Vector2.up, true);
-//		}
 		if (Input.GetKey (KeyCode.Space) || Input.GetKeyDown (KeyCode.Space)
 			|| Input.GetKey(KeyCode.JoystickButton3)) {
 			if (lastFiredTimeDistance >= 0.1f) {

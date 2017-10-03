@@ -104,18 +104,5 @@ public class GameManager : MonoBehaviour {
 		if (animatedBackground) {
 			sceneObject.Find ("MovingEffect").gameObject.SetActive (true);
 		}
-//		SpawnEnemies ();
-	}
-
-	private void SpawnEnemies() {
-		float xDist = 1.5f;
-		float yDist = 1.5f;
-		for (int i = 0; i < numEnemiesToSpawn; i++) {
-			int rowIndex = i % numEnemiesPerWave;
-			float xPos = (rowIndex - ((numEnemiesPerWave)/2)) * xDist;
-			float yPos = ((-i / numEnemiesPerWave)) * yDist + (numEnemiesToSpawn/numEnemiesPerWave*yDist);
-			GameObject enemy = GameObject.Instantiate (enemyPrefab, sceneObject);
-			enemy.transform.position = new Vector3 (xPos, yPos, 0f);
-		}
 	}
 }
