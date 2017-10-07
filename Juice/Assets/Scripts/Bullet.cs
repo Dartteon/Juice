@@ -55,18 +55,21 @@ public class Bullet : MonoBehaviour {
 				e.Damage (damage);
 				StopTime ();
 				SpawnExplosion ();
-			}
-			if (currNumHit >= maxNumHit) {
-				StartDestructSequence ();
-			}
-		} else {
-			Player p = col.GetComponent<Player> ();
-			if (p != null) {
-				p.Damage (damage);
-				StopTime ();
-				StartDestructSequence ();
+
+				if (currNumHit >= maxNumHit) {
+					StartDestructSequence ();
+				}
 			}
 		}
+
+//		else {
+//			Player p = col.GetComponent<Player> ();
+//			if (p != null) {
+//				p.Damage (damage);
+//				StopTime ();
+//				StartDestructSequence ();
+//			}
+//		}
 	}
 
 	private void StopTime() {

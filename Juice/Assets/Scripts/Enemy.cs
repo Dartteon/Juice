@@ -24,6 +24,9 @@ public class Enemy : BaseActor {
 			anim.Play ("EnemyDeath");
 			Invoke ("DestroySelf", 0.5f);
 			transform.GetComponentInChildren<Collider2D> ().enabled = false;
+			GameObject explosion = GameObject.Instantiate (deathExplosionPrefab, transform.parent);
+			explosion.transform.position = transform.position;
+			Destroy (explosion, 0.5f);
 		} else {
 			DestroySelf ();
 		}

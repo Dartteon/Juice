@@ -315,8 +315,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf97dd6cf70c874eb4b58fa4d41a0b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
   explosionPrefab: {fileID: 1622429079239552, guid: ed74f131434a4764b9dcbe069aaeaa1a,
     type: 2}
+  damage: 1
+  maxNumHit: 1
+  stopTimeOnHit: 0
 --- !u!114 &114943652691313420
 MonoBehaviour:
   m_ObjectHideFlags: 1

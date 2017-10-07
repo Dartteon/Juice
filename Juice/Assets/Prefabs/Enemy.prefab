@@ -194,6 +194,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 0}
+  fireEffectPrefab: {fileID: 0}
+  deathExplosionPrefab: {fileID: 1888718156427090, guid: 7b3ac41570414c444ac13f80adb9bb51,
+    type: 2}
 --- !u!212 &212738870463244506
 SpriteRenderer:
   m_ObjectHideFlags: 1

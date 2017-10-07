@@ -7,6 +7,8 @@ public class BaseActor : MonoBehaviour {
 	protected GameObject bulletPrefab;
 	[SerializeField]
 	protected GameObject fireEffectPrefab;
+	[SerializeField]
+	protected GameObject deathExplosionPrefab;
 	protected Transform gunPoint;
 	protected Rigidbody2D rb2d;
 	protected float moveSpeed = 5f;

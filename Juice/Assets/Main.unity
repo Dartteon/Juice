@@ -8734,6 +8734,7 @@ MonoBehaviour:
     type: 2}
   fireEffectPrefab: {fileID: 1925166440565612, guid: 7021bfea6ec23c441a7f4ddf49036aef,
     type: 2}
+  deathExplosionPrefab: {fileID: 0}
   bigBulletPrefab: {fileID: 1955095928745180, guid: cd51ede73eb3259418cb05a354aca1f5,
     type: 2}
 --- !u!4 &1088458763
@@ -9210,7 +9211,7 @@ MonoBehaviour:
   animatedBackground: 0
   audioEnabled: 0
   knockbackOnHit: 0
-  useAllJuices: 1
+  useAllJuices: 0
   numEnemiesToSpawn: 15
   spawnEnemies: 1
   spawnRate: 1

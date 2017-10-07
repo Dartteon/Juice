@@ -29,9 +29,8 @@ public class GameManager : MonoBehaviour {
 	public bool knockbackOnHit;
 
 	public bool useAllJuices;
+	private bool lastRecordedUseAllJuices;
 
-	[SerializeField]
-	private int numEnemiesToSpawn = 15;
 	public bool spawnEnemies;
 	[SerializeField]
 	private float spawnRate = 2f;
@@ -47,29 +46,32 @@ public class GameManager : MonoBehaviour {
 	public float camShakeIntensity = 0.2f;
 
 	void Start() {
-		if (useAllJuices) {
-			UseAllJuices ();
-		}
 		instance = this;
 		Initialize ();
 	}
 
-	private void UseAllJuices() {
-		camShake = true;
-		pauseTimeOnHit = true;
-		particleSpawnOnExplode = true;
-		enemyWince = true;
-		enemyDeathExplosion = true;
-		playerTrail = true;
-		bulletTrail = true;
-		bulletSummonEffects = true;
-		animatedBackground = true;
+	private void UseAllJuices(bool doUse) {
+		camShake = doUse;
+//		pauseTimeOnHit = doUse;
+		particleSpawnOnExplode = doUse;
+		enemyWince = doUse;
+		enemyDeathExplosion = doUse;
+		playerTrail = doUse;
+		bulletTrail = doUse;
+		bulletSummonEffects = doUse;
+		animatedBackground = doUse;
 
-		audioEnabled = true;
-		knockbackOnHit = true;
+		audioEnabled = doUse;
+		knockbackOnHit = doUse;
 	}
 
 	void Update() {
+		if (lastRecordedUseAllJuices != useAllJuices) {
+			UseAllJuices (useAllJuices);
+		}
+		lastRecordedUseAllJuices = useAllJuices;
+		CheckAnimatedBackground ();
+
 		lastSpawnEnemyTimeWidth += TimeManager.deltaTime;
 		if (lastSpawnEnemyTimeWidth >= spawnEnemyCooldown) {
 			SpawnEnemy ();
@@ -99,10 +101,16 @@ public class GameManager : MonoBehaviour {
 
 	}
 
-	private void Initialize() {
-		sceneObject = GameObject.Find ("Scene").transform;
+
+	private void CheckAnimatedBackground() {
 		if (animatedBackground) {
 			sceneObject.Find ("MovingEffect").gameObject.SetActive (true);
+		} else {
+			sceneObject.Find ("MovingEffect").gameObject.SetActive (false);
 		}
+	}
+	private void Initialize() {
+		sceneObject = GameObject.Find ("Scene").transform;
+		CheckAnimatedBackground ();
 	}
 }
