@@ -14,6 +14,11 @@ public class TimeManager : MonoBehaviour {
 
 	void Update() {
 		if (!isPaused) {
+			if (Input.GetKey (KeyCode.T) || Input.GetKey(KeyCode.JoystickButton2)) {
+				Time.timeScale = 0.5f;
+			} else {
+				Time.timeScale = 1f;
+			}
 			deltaTime = Time.deltaTime;
 		} else {
 			deltaTime = 0f;

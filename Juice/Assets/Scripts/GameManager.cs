@@ -79,12 +79,6 @@ public class GameManager : MonoBehaviour {
 			spawnEnemyCooldown = Random.Range (1/spawnRate - 0.5f, 1/spawnRate + 0.5f);
 		}
 
-		if (Input.GetKey (KeyCode.T)) {
-			Time.timeScale = 0.5f;
-		} else {
-			Time.timeScale = 1f;
-		}
-
 		if (Input.GetKeyDown (KeyCode.JoystickButton0)) {
 			UnityEngine.SceneManagement.SceneManager.LoadScene ("Main");
 		}
