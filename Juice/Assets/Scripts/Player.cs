@@ -61,7 +61,7 @@ public class Player : BaseActor {
 		if (TimeManager.isPaused) return;
 
 		if (Input.GetKey (KeyCode.Space) || Input.GetKeyDown (KeyCode.Space)
-			|| Input.GetKey(KeyCode.JoystickButton3)) {
+			|| Input.GetKey(KeyCode.JoystickButton3) || Input.GetKeyDown (KeyCode.JoystickButton3)) {
 			if (lastFiredTimeDistance >= 0.1f) {
 				lastFiredTimeDistance = 0f;
 				GameObject bulletObj = GameObject.Instantiate (bulletPrefab, transform.parent);
