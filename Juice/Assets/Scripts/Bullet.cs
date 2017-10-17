@@ -74,7 +74,7 @@ public class Bullet : MonoBehaviour {
 
 	private void StopTime() {
 		if (stopTimeOnHit && GameManager.instance.pauseTimeOnHit) {
-			TimeManager.StopTime (.07f);
+			TimeManager.StopTime (GameManager.instance.timePauseDuration);
 		}
 	}
 

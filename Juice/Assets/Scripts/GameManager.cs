@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour {
 	private float spawnEnemyCooldown = 1f;
 
 	public float camShakeIntensity = 0.2f;
+	public float timePauseDuration = 0.07f;
 
 	void Start() {
 		instance = this;
