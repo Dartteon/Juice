@@ -9,7 +9,7 @@ A mini-game created for a school presentation on Juice
 4) Enable/disable the checkboxes for juices as you see fit  
 
 # About
-Done by Baron Chan (AKA Dartteon)
-For a presentation about Juice in the Game Development context
-Slides can be found here -
+Done by Baron Chan (AKA Dartteon)  
+For a presentation about Juice in the Game Development context  
+Slides can be found here -  
 https://docs.google.com/presentation/d/1v2aZDNNUSETJnQcWw7VLhLgtuF4xDWzI65q-M-w7Q9I/edit#slide=id.g35f391192_00
