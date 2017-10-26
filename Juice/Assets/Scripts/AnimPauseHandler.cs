@@ -5,11 +5,13 @@ using UnityEngine;
 public class AnimPauseHandler : MonoBehaviour {
 	private bool isPaused;
 	private Animator[] anims;
+	private bool[] wasActiveAnims;
 	private ParticleSystem[] pEmitters;
 
 	void Start() {
 		anims = transform.GetComponentsInChildren<Animator> ();
 		pEmitters = transform.GetComponentsInChildren<ParticleSystem>();
+		wasActiveAnims = new bool[anims.Length];
 	}
 
 	void Update () {
@@ -28,7 +30,14 @@ public class AnimPauseHandler : MonoBehaviour {
 
 	private void SetAnimsEnabled (bool enabled) {
 		for (int i = 0; i < anims.Length; i++) {
-			anims [i].enabled = enabled;
+			if (enabled) {
+				if (wasActiveAnims[i]) {	
+					anims [i].enabled = enabled;
+				}
+			} else {
+				wasActiveAnims [i] = anims [i].enabled;
+				anims [i].enabled = enabled;
+			}
 		}
 		for (int i = 0; i < pEmitters.Length; i++) {
 			if (enabled) {
