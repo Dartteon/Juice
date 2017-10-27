@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TimeManager : MonoBehaviour {
-	private static TimeManager instance;
+//	private static TimeManager instance;
 	public static bool isPaused { get; private set; }
 	public static float deltaTime { get; private set; }
 	private static float resumeTime;
 
-	void Start() {
-		instance = this;
-	}
+//	void Start() {
+//		instance = this;
+//	}
 
 	void Update() {
 		if (!isPaused) {

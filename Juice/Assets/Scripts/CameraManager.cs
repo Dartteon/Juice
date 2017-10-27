@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour {
 	private static CameraManager instance;
 
-	private Vector2 origin;
+	private Vector2 origin = Vector2.zero;
 
 	private float intensity;
 	private float totalShakeDuration;

@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 	private Transform sceneObject;
-	private int numEnemiesPerWave = 5;
 
 	// 1 - Camera Shake
 	public bool camShake;
