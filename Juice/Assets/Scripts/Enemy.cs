@@ -35,6 +35,12 @@ public class Enemy : BaseActor {
 		gameObject.SetActive (false);
 	}
 
+	private void OnCollisionEnter2D (Collision2D col) {
+		if (col.gameObject.GetComponent<Player> () != null) {
+			Damage (health);
+		}
+	}
+
 	protected override void HandleMovement() {
 
 		float xVel = 0f;
@@ -46,6 +52,10 @@ public class Enemy : BaseActor {
 		} else {
 			yVel += -moveSpeed;
 			rb2d.velocity = new Vector2 (xVel, yVel);
+		}
+
+		if (transform.position.y <= -13f) {
+			Damage (health);
 		}
 	}
 

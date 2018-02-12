@@ -130,7 +130,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 363279017}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FloorL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 365654961}
   - component: {fileID: 365654963}
   - component: {fileID: 365654962}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 412796917}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FloorT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 412796916}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 15, z: 0}
+  m_LocalPosition: {x: 0, y: 10.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1033248432}
@@ -245,7 +245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 432622141}
   - component: {fileID: 432622142}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WhiteSquare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 442487755}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GunPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 580144927}
   - component: {fileID: 580144929}
   - component: {fileID: 580144928}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3115,7 +3115,7 @@ GameObject:
   - component: {fileID: 708450433}
   - component: {fileID: 708450435}
   - component: {fileID: 708450434}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3172,7 +3172,7 @@ GameObject:
   - component: {fileID: 887878414}
   - component: {fileID: 887878413}
   - component: {fileID: 887878412}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BGStars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5892,7 +5892,7 @@ GameObject:
   - component: {fileID: 949976024}
   - component: {fileID: 949976026}
   - component: {fileID: 949976025}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8590,7 +8590,7 @@ GameObject:
   m_Component:
   - component: {fileID: 982206235}
   - component: {fileID: 982206236}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WhiteSquare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8655,7 +8655,7 @@ GameObject:
   - component: {fileID: 1033248432}
   - component: {fileID: 1033248434}
   - component: {fileID: 1033248433}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8712,7 +8712,7 @@ GameObject:
   - component: {fileID: 1088458762}
   - component: {fileID: 1088458764}
   - component: {fileID: 1088458765}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8795,7 +8795,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1470272092}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FloorB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8825,7 +8825,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1553931399}
   - component: {fileID: 1553931400}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WhiteSquare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8888,7 +8888,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1753035048}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FloorR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8958,7 +8958,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1940743232}
   - component: {fileID: 1940743233}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WhiteCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9022,7 +9022,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1964525983}
   - component: {fileID: 1964525984}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WhiteSquare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9212,13 +9212,13 @@ MonoBehaviour:
   audioEnabled: 0
   knockbackOnHit: 0
   useAllJuices: 0
-  numEnemiesToSpawn: 15
   spawnEnemies: 1
   spawnRate: 1
   enemyPrefab: {fileID: 1338372344781722, guid: 4cba43d10d8ad8e4c99f85635ae3a427,
     type: 2}
   enemyHealth: 5
   camShakeIntensity: 0.2
+  timePauseDuration: 0.07
 --- !u!1 &2036305067
 GameObject:
   m_ObjectHideFlags: 0
@@ -9228,7 +9228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2036305068}
   - component: {fileID: 2036305069}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
